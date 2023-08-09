@@ -15,7 +15,6 @@ def main():
     img = cv2.imread(img_path)
 
     cv2.imshow("Image", img)
-    cv2.waitKey(0)
 
     analysis = DeepFace.analyze(img, actions=("emotion", "age", "gender", "race"))
     analysis = analysis[0]
@@ -24,6 +23,8 @@ def main():
     display_results("Emotions", analysis['emotion'])
     display_results("Gender", analysis['gender'])
     display_results("Race", analysis['race'])
+
+    cv2.waitKey(0)
 
 
 if __name__ == "__main__":
